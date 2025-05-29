@@ -9,13 +9,13 @@
 class TrackAnalyzer {
 private:
     std::vector<TrackPoint> tracks;
-    Reporter* reporter;  // Обычный указатель вместо unique_ptr
+    Reporter* reporter;  
     bool ownsReporter;
 
 public:
-    // Конструктор теперь принимает обычный указатель
+    
     explicit TrackAnalyzer(const std::string& filepath, Reporter* reporter = nullptr, bool takeOwnership = false);
-    ~TrackAnalyzer();  // Добавляем деструктор для освобождения памяти
+    ~TrackAnalyzer();  
     
     void analyzeAndReport();
     double getTotalDistance();
