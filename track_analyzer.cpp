@@ -5,7 +5,7 @@
 
 TrackAnalyzer::TrackAnalyzer(const std::string& filepath, Reporter* reporter, bool takeOwnership)
     : reporter(reporter ? reporter : new ConsoleReporter()),
-      ownsReporter(reporter ? takeOwnership : true) {  // Если reporter не передан, мы владеем созданным ConsoleReporter
+      ownsReporter(reporter ? takeOwnership : true) {  
     TrackDataProvider dataProvider;
     tracks = dataProvider.getTracks(filepath);
 }
@@ -35,7 +35,7 @@ void TrackAnalyzer::analyzeAndReport() {
     printSpeedDistribution();
 }
 
-// Остальные методы остаются без изменений
+
 double TrackAnalyzer::getTotalDistance() {
     AllDistanceCalculator calculator;
     return calculator.calculate(tracks);
